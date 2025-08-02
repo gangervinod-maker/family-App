@@ -26,9 +26,19 @@ Full Address: {address}
     file = io.StringIO(content)
 
     # Download button
-    st.download_button(
-        label="📥 Download as .txt file",
-        data=file,
-        file_name="family_info.txt",
-        mime="text/plain"
+    # Prepare the text data
+text_data = f"Full Name: {full_name}\nFamily Members: {family_members}\nFull Address: {full_address}"
+
+# Convert it to bytes using StringIO
+file_data = io.StringIO(text_data)
+
+# Show the download button
+st.download_button(
+    label="📥 Download as .txt file",
+    data=file_data,
+    file_name="family_data.txt",
+    mime="text/plain"
+)
+
     )
+
